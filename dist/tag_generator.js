@@ -168,7 +168,7 @@ e.l;if(M){f();e.c=e.lb;p=e.c;b:{u=e.c;if(c(u,2,"ad")){e.c=u;if(c(u,5,"soyad")){u
 
 TG.Helper = {
   bad_words: {
-    nl: "de en van ik jij hij zij zei te dat die in een hij het niet zijn is was op aan met als voor had er maar om hem dan zou of wat mijn men dit zo door over ze zich bij ook tot je mij uit der daar haar naar heb hoe heeft hebben deze u want nog zal me zij nu ge geen omdat iets worden toch al waren veel meer doen toen moet ben zonder kan hun dus alles onder ja eens hier wie werd altijd doch wordt wezen kunnen ons zelf tegen na reeds wil kon niets uw iemand geweest andere is nbsp"
+    nl: "de en van ik jij hij zij we wij zei te dat die in een hij het niet zijn is was op aan met als voor had er maar om hem dan zou of wat mijn men dit zo door over ze zich bij ook tot je mij uit der daar haar naar heb hoe heeft hebben deze u want nog zal me zij nu ge geen omdat iets worden toch al waren veel meer doen toen moet ben zonder kan hun dus alles onder ja eens hier wie werd altijd doch wordt wezen kunnen ons zelf tegen na reeds wil kon niets uw iemand geweest andere is nbsp"
   },
   diacritics: [
     [/[\300-\306]/g, 'A'],
