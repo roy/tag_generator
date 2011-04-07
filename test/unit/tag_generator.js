@@ -30,6 +30,17 @@ module.exports = TagGeneratorTest({
       test.deepEqual(["title", "lead", "content"], this.tag_generator.attributes);
       test.equals(3, tags[1][1]); //tekst rating
       test.done();
+    },
+
+    "first tag should not be an empty tag": function (test) {
+      this.tag_generator.set("title", "");
+      this.tag_generator.set("lead", "");
+      this.tag_generator.set("content", "Dit is tekst tekst");
+
+      var tags = this.tag_generator.generateTags();
+      test.deepEqual(["title", "lead", "content"], this.tag_generator.attributes);
+      test.notEqual('', tags[0][0]); //tekst rating
+      test.done();
     }
   });
 

@@ -21,9 +21,10 @@ TG.TagGenerator.prototype = {
 
     for(var i=0, len = this.attributes.length; i < len; i++){
       var attribute = this.attributes[i],
-          multiplier = this.options.attributes[attribute],
-          words = this.helper.removeBadWords(this.get(attribute)).split(" ");
+          multiplier = this.options.attributes[attribute];
 
+      if(this.get(attribute) === undefined || this.get(attribute) === ''){ continue; }
+      var words = this.helper.removeBadWords(this.get(attribute)).split(" ");
 
       for(var j=0, jlen = words.length; j < jlen; j++){
         var word = words[j],
@@ -39,7 +40,6 @@ TG.TagGenerator.prototype = {
     }
 
     tags = this.sortTags(tags);
-    console.log(tags);
     return tags;
   },
 
