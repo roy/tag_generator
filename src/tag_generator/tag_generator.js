@@ -21,10 +21,15 @@ TG.TagGenerator.prototype = {
 
     for(var i=0, len = this.attributes.length; i < len; i++){
       var attribute = this.attributes[i],
-          multiplier = this.options.attributes[attribute];
+          multiplier = this.options.attributes[attribute],
+          content = this.get(attribute);
 
-      if(this.get(attribute) === undefined || this.get(attribute) === ''){ continue; }
-      var words = this.helper.removeBadWords(this.get(attribute)).split(" ");
+      content = this.helper.removeBadWords(content);
+      content = this.helper.removeNonWordCharacters(content);
+      
+      if(content === undefined || content === ''){ continue; }
+
+      var words = content.split(" ");
 
       for(var j=0, jlen = words.length; j < jlen; j++){
         var word = words[j],

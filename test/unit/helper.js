@@ -34,5 +34,10 @@ module.exports = HelperTest({
   "Remove bad words": function(test){
     test.equals("test", TG.Helper.removeBadWords("Dit is een test"));
     test.done();
+  },
+
+  "Remove non word characters": function(test){
+    test.equals("Dit is een test", TG.Helper.removeNonWordCharacters("Dit. is- een, test"));
+    test.done();
   }
 });
