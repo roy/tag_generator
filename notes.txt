@@ -1,0 +1,9 @@
+- Obtain Text
+- Strip punctuation, special characters, etc.
+- Strip "simple" words
+- Split on Spaces
+- Loop Over Split Text
+    - Add word to Array/HashTable/Etc if it doesn't exist;
+       if it does, increment counter for that word
+
+http://snowball.tartarus.org/algorithms/dutch/stemmer.html
