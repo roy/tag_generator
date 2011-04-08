@@ -29,7 +29,7 @@ TG.TagGenerator.prototype = {
       
       if(content === undefined || this.helper.trim(content) === ''){ continue; }
 
-      var words = content.split(" ");
+      var words = content.toLowerCase().split(" ");
 
       for(var j=0, jlen = words.length; j < jlen; j++){
         var word = words[j],
