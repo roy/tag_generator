@@ -24,10 +24,10 @@ TG.TagGenerator.prototype = {
           multiplier = this.options.attributes[attribute],
           content = this.get(attribute);
 
-      content = this.helper.removeBadWords(content);
       content = this.helper.removeNonWordCharacters(content);
+      content = this.helper.removeBadWords(content);
       
-      if(content === undefined || content === ''){ continue; }
+      if(content === undefined || this.helper.trim(content) === ''){ continue; }
 
       var words = content.split(" ");
 

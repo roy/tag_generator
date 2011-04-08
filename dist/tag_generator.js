@@ -168,7 +168,7 @@ e.l;if(M){f();e.c=e.lb;p=e.c;b:{u=e.c;if(c(u,2,"ad")){e.c=u;if(c(u,5,"soyad")){u
 
 TG.Helper = {
   bad_words: {
-    nl: "de en van ik jij hij zij we wij zei te dat die in een hij het niet zijn is was op aan met als voor had er maar om hem dan zou of wat mijn men dit zo door over ze zich bij ook tot je mij uit der daar haar naar heb hoe heeft hebben deze u want nog zal me zij nu ge geen omdat iets worden toch al waren veel meer doen toen moet ben zonder kan hun dus alles onder ja eens hier wie werd altijd doch wordt wezen kunnen ons zelf tegen na reeds wil kon niets uw iemand geweest andere is nbsp"
+    nl: "de en van ik jij hij zij we wij zei te dat die in een hij het niet zijn is was op aan met als voor had er maar om hem dan zou of wat mijn men dit zo door over ze zich bij ook tot je mij uit der daar haar naar heb hoe heeft hebben deze u want nog zal me zij nu ge geen omdat iets worden toch al waren veel meer doen toen moet ben zonder kan hun dus alles onder ja eens hier wie werd altijd doch wordt wezen kunnen ons zelf tegen na reeds wil kon niets uw iemand geweest andere is nbsp wel een twee drie vier vijf zes zeven acht negen tien elf twaalf dertien veertien vijftien"
   },
   diacritics: [
     [/[\300-\306]/g, 'A'],
@@ -222,7 +222,11 @@ TG.Helper = {
     lan = lan || "nl";
     value = value.replace(this.bad_words[lan], ""); //remove bad words;
     value = value.replace(/\s{2,}/g, " "); //remove extra spaces;
-    return value.replace(/(^\s|\s$)/g, ""); //trim;
+    return this.trim(value); //trim;
+  },
+
+  trim: function(value){
+    return value.replace(/(^\s|\s$)/g, "");
   },
 
   removeNonWordCharacters: function(value){
@@ -265,10 +269,10 @@ TG.TagGenerator.prototype = {
           multiplier = this.options.attributes[attribute],
           content = this.get(attribute);
 
-      content = this.helper.removeBadWords(content);
       content = this.helper.removeNonWordCharacters(content);
+      content = this.helper.removeBadWords(content);
 
-      if(content === undefined || content === ''){ continue; }
+      if(content === undefined || this.helper.trim(content) === ''){ continue; }
 
       var words = content.split(" ");
 
